@@ -23,7 +23,12 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf().disable().authorizeHttpRequests().requestMatchers("/register").permitAll().requestMatchers("home")
-                .permitAll().requestMatchers("/api/**").permitAll().anyRequest().authenticated().and().formLogin(withDefaults());
+                .permitAll().requestMatchers("/api/**").permitAll().anyRequest().authenticated()
+                .and()
+                .formLogin(form -> form
+                    .loginPage("/login")
+                    .permitAll()
+                );
 
         return http.build();
     }
