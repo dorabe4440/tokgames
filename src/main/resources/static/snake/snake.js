@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
    .catch(error => console.error('Error fetching user data:', error));
    const goBackButton = document.getElementById('go-back-button');
               goBackButton.addEventListener('click', function() {
-                  window.location.href = 'http://tokgames.cleverapps.io/home'; // Redirect to the home page
+                  window.location.href = '/home'; // Redirect to the home page
               });
 });
 
